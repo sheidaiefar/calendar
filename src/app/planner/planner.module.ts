@@ -11,8 +11,10 @@ import {
   MatHeaderCell, MatHeaderCellDef,
   MatHeaderRow, MatHeaderRowDef,
   MatRow, MatRowDef,
-  MatTable
+  MatTable,
 } from "@angular/material/table";
+import {MatFormField, MatLabel} from "@angular/material/form-field";
+import {MatDatepicker} from "@angular/material/datepicker";
 
 
 
@@ -34,6 +36,9 @@ import {
     MatHeaderCellDef,
     MatHeaderRowDef,
     MatRowDef,
+    MatLabel,
+    MatFormField,
+    MatDatepicker,
   ]
 })
 export class PlannerModule { }

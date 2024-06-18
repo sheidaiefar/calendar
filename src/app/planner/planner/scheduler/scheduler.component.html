@@ -1,0 +1,171 @@
+<!--<mat-table [dataSource]="scheduleData" class="mat-elevation-z8">-->
+
+<!--  &lt;!&ndash; Date Column &ndash;&gt;-->
+<!--  <ng-container matColumnDef="date">-->
+<!--    <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>-->
+<!--    <mat-cell *matCellDef="let row">-->
+<!--      {{ row.date | date: 'yyyy-MM-dd' }}-->
+<!--    </mat-cell>-->
+<!--  </ng-container>-->
+
+<!--  &lt;!&ndash; Start Time Column &ndash;&gt;-->
+<!--  <ng-container matColumnDef="start">-->
+<!--    <mat-header-cell *matHeaderCellDef> Start </mat-header-cell>-->
+<!--    <mat-cell *matCellDef="let row">-->
+<!--      {{ row.start }}-->
+<!--    </mat-cell>-->
+<!--  </ng-container>-->
+
+<!--  &lt;!&ndash; End Time Column &ndash;&gt;-->
+<!--  <ng-container matColumnDef="end">-->
+<!--    <mat-header-cell *matHeaderCellDef> End </mat-header-cell>-->
+<!--    <mat-cell *matCellDef="let row">-->
+<!--      {{ row.end }}-->
+<!--    </mat-cell>-->
+<!--  </ng-container>-->
+
+<!--  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>-->
+<!--  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>-->
+<!--</mat-table>-->
+
+<!--&lt;!&ndash; Date Picker &ndash;&gt;-->
+<!--<mat-form-field>-->
+<!--  <mat-label>Choose a Date</mat-label>-->
+<!--  <mat-datepicker [startAt]="scheduleData[0].date" (dateInput)="datepicker.open()"></mat-datepicker>-->
+<!--</mat-form-field>-->
+
+<section class="calendar">
+  <div class="calendar__row-title">
+    <div class="calendar__row-title__content">
+      <div class="calendar__row-title__content__monthly-program">
+        برنامه ماهیانه
+      </div>
+      <div class="calendar__row-title__content__arabic-month">
+        شوال - ذوالقعده 1441
+      </div>
+      <div class="calendar__row-title__content__persian-month">
+        تیر 1399
+      </div>
+      <div class="calendar__row-title__content__english-month">
+        June-July 2020
+      </div>
+      <div class="calendar__row-title__content__navigate">
+        هفته قبل - هفته بعد
+      </div>
+    </div>
+  </div>
+  <div class="calendar__row-header">
+    <div>
+      شنبه
+    </div>
+    <div>
+      یکشنبه
+    </div>
+    <div>
+      دوشنبه
+    </div>
+    <div>
+      سه شنبه
+    </div>
+    <div>
+      چهارشنبه
+    </div>
+    <div>
+      پنجشنبه
+    </div>
+    <div>
+      جمعه
+    </div>
+  </div>
+  <div class="calendar__row-grid">
+    <div class="calendar__col-time">
+      <ng-template ngFor let-hour [ngForOf]="hours">
+        <div class="calendar__col-time__hour">
+          <div class="calendar__col-time__hour__value">
+            {{hour}} : 00
+          </div>
+        </div>
+        <div class="calendar__col-time__hour"></div>
+      </ng-template>
+    </div>
+    <div class="calendar__row-grid__col-day">
+      <div class="calendar__row-grid__col-day__day-container">
+        <ng-template ngFor let-hour [ngForOf]="hours">
+          <div class="calendar__row-grid__col-day__day-container__day"></div>
+          <div class="calendar__row-grid__col-day__day-container__day"></div>
+        </ng-template>
+        <div class="calendar__row-grid__col-day__day-container__task" draggable="true"
+             [style.height.px]="task.heightPx" [style.top.px]="task.topPx" *ngFor="let task of satTaskList">
+          <div class="calendar__row-grid__col-day__day-container__task__title">{{task.title}}</div>
+          <div class="calendar__row-grid__col-day__day-container__task__location">{{task.location}}</div>
+          <div class="calendar__row-grid__col-day__day-container__task__from-to">
+            {{task.from}} - {{task.to}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="calendar__row-grid__col-day">
+      <div class="calendar__row-grid__col-day__day-container">
+        <ng-template ngFor let-hour [ngForOf]="hours">
+          <div class="calendar__row-grid__col-day__day-container__day"></div>
+          <div class="calendar__row-grid__col-day__day-container__day"></div>
+        </ng-template>
+      </div>
+    </div>
+    <div class="calendar__row-grid__col-day">
+
+      <div class="calendar__row-grid__col-day__day-container active">
+        <ng-template ngFor let-hour [ngForOf]="hours">
+          <div class="calendar__row-grid__col-day__day-container__day"></div>
+          <div class="calendar__row-grid__col-day__day-container__day"></div>
+        </ng-template>
+      </div>
+    </div>
+    <div class="calendar__row-grid__col-day">
+
+      <div class="calendar__row-grid__col-day__day-container">
+        <ng-template ngFor let-hour [ngForOf]="hours">
+          <div class="calendar__row-grid__col-day__day-container__day"></div>
+          <div class="calendar__row-grid__col-day__day-container__day"></div>
+        </ng-template>
+      </div>
+    </div>
+    <div class="calendar__row-grid__col-day">
+      <div class="calendar__row-grid__col-day__day-container">
+        <ng-template ngFor let-hour [ngForOf]="hours">
+          <div class="calendar__row-grid__col-day__day-container__day"></div>
+          <div class="calendar__row-grid__col-day__day-container__day"></div>
+        </ng-template>
+      </div>
+    </div>
+    <div class="calendar__row-grid__col-day">
+
+      <div class="calendar__row-grid__col-day__day-container">
+        <ng-template ngFor let-hour [ngForOf]="hours">
+          <div class="calendar__row-grid__col-day__day-container__day"></div>
+          <div class="calendar__row-grid__col-day__day-container__day"></div>
+        </ng-template>
+      </div>
+    </div>
+    <div class="calendar__row-grid__col-day">
+      <div class="calendar__row-grid__col-day__day-container">
+        <ng-template ngFor let-hour [ngForOf]="hours">
+          <div class="calendar__row-grid__col-day__day-container__day"></div>
+          <div class="calendar__row-grid__col-day__day-container__day"></div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+  <div class="calendar__row-bottom">
+    <div class="calendar__col-time"></div>
+    <div class="calendar__row-bottom__bottom-container">
+      <button class="calendar__row-bottom__bottom-container__goto-today">
+        برو به امروز
+      </button>
+      <div class="calendar__row-bottom__bottom-container__current-time">
+        14:30:50
+      </div>
+    </div>
+  </div>
+</section>
+
