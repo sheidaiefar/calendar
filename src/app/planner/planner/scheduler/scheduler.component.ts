@@ -1,7 +1,8 @@
-import {AfterViewInit, Component, Input, ViewChild} from '@angular/core';
+import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import {Time} from "@angular/common";
-import {MatDatepicker} from "@angular/material/datepicker";
+import { Time } from '@angular/common';
+import { MatDatepicker } from '@angular/material/datepicker';
+import { PlannerService } from '../services/planner.service';
 
 export interface TaskModel {
   title: string;
@@ -12,64 +13,50 @@ export interface TaskModel {
   topPx: number;
 }
 
-
 @Component({
   selector: 'app-scheduler',
   templateUrl: './scheduler.component.html',
   styleUrl: './scheduler.component.scss',
-
 })
 export class SchedulerComponent {
-
-@Input() SelectedDate:any;
+  @Input() SelectedDate: any;
   // @ViewChild(MatDatepicker) datepicker: MatDatepicker<Date> | undefined;
 
-   displayedColumns: string[] = ['time'];
+  displayedColumns: string[] = ['time'];
 
-   data:any[]=[]
-  // scheduleData = [
-  //   { date: new Date('2024-06-18T00:00:00.000Z'), start: '09:00', end: '10:00' },
-  //   { date: new Date('2024-06-18T00:00:00.000Z'), start: '10:00', end: '11:00' },
-  //   // Add more schedule entries here
-  // ];
-
-
-
-  // ngAfterViewInit() {
-  //   this.datepicker?.open();
-  // }
+  data: any[] = [];
 
   readonly hours: number[] = [];
-  satTaskList: TaskModel[] = [
-      {
-          title: 'مدیریت فرآیندها',
-          to: 1,
-          from: 3,
-          location: 'tehran',
-          heightPx: 100,
-          topPx: 300
-      }, {
-          title: 'فیزیک',
-          to: 1,
-          from: 3,
-          location: 'ساختمان 2',
-          heightPx: 150,
-          topPx: 1000
-      },
-  ];
-  constructor() {
-      for (let t = 0; t < 24; t++) {
-          this.hours.push(t);
-        this.data.push({time:t})
-      }
-    console.log(this.data)
+  // satTaskList: TaskModel[] = [
+  //     {
+  //         title: 'مدیریت فرآیندها',
+  //         to: 1,
+  //         from: 3,
+  //         location: 'tehran',
+  //         heightPx: 100,
+  //         topPx: 300
+  //     }, {
+  //         title: 'فیزیک',
+  //         to: 1,
+  //         from: 3,
+  //         location: 'ساختمان 2',
+  //         heightPx: 150,
+  //         topPx: 1000
+  //     },
+  // ];
+  constructor(private plannerService: PlannerService) {
+    for (let t = 0; t < 24; t++) {
+      this.hours.push(t);
+      this.data.push({ time: t });
+    }
+    console.log(this.data);
 
+    this.SelectedDate = this.plannerService.getSelectedDate().subscribe((x) => {
+      console.log(x);
+      debugger;
+    });
 
+    console.log(this.SelectedDate);
+    debugger;
   }
-
-
-
-
-
-
 }
