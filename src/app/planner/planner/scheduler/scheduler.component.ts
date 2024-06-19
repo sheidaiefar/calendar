@@ -30,7 +30,6 @@ export class SchedulerComponent {
   displayedColumns: string[] = []
 
 
-
   readonly hours: number[] = [];
   // satTaskList: TaskModel[] = [
   //     {
