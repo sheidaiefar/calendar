@@ -20,10 +20,13 @@ export interface TaskModel {
 
 })
 export class SchedulerComponent {
-@Input() date:Date[]=[];
+
+@Input() SelectedDate:any;
   // @ViewChild(MatDatepicker) datepicker: MatDatepicker<Date> | undefined;
 
-  // displayedColumns: string[] = ['date', 'start', 'end'];
+   displayedColumns: string[] = ['time'];
+
+   data:any[]=[]
   // scheduleData = [
   //   { date: new Date('2024-06-18T00:00:00.000Z'), start: '09:00', end: '10:00' },
   //   { date: new Date('2024-06-18T00:00:00.000Z'), start: '10:00', end: '11:00' },
@@ -57,7 +60,11 @@ export class SchedulerComponent {
   constructor() {
       for (let t = 0; t < 24; t++) {
           this.hours.push(t);
+        this.data.push({time:t})
       }
+    console.log(this.data)
+
+
   }
 
 

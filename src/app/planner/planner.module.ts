@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {ChangeDetectionStrategy, NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PlannerComponent } from './planner/planner.component';
 import {HeaderComponent} from "./planner/header/header.component";
@@ -13,9 +13,15 @@ import {
   MatRow, MatRowDef,
   MatTable,
 } from "@angular/material/table";
-import {MatFormField, MatLabel} from "@angular/material/form-field";
-import {MatDatepicker} from "@angular/material/datepicker";
-
+import {MatFormField, MatFormFieldModule, MatLabel} from "@angular/material/form-field";
+import {
+  MatDatepicker,
+  MatDatepickerInput,
+  MatDatepickerModule,
+  MatDatepickerToggle
+} from "@angular/material/datepicker";
+import {MatInput, MatInputModule} from "@angular/material/input";
+import {MatIcon, MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -39,6 +45,12 @@ import {MatDatepicker} from "@angular/material/datepicker";
     MatLabel,
     MatFormField,
     MatDatepicker,
+    MatInput,
+    MatDatepickerInput,
+    MatDatepickerToggle,
+    MatIcon,
+    MatFormFieldModule, MatInputModule, MatDatepickerModule, MatIconModule
+
   ]
 })
 export class PlannerModule { }
