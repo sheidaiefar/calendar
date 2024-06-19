@@ -10,7 +10,6 @@ export class PlannerService {
   private selectedDateSubject = new BehaviorSubject<Date | null>(this.today);
 
   setSelectedDate(value: Date | null) {
-    debugger;
     this.selectedDateSubject.next(value);
   }
 
