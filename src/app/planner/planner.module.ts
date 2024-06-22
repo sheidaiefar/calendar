@@ -1,34 +1,40 @@
-import {ChangeDetectionStrategy, NgModule} from '@angular/core';
+import { ChangeDetectionStrategy, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PlannerComponent } from './planner/planner.component';
-import {HeaderComponent} from "./planner/header/header.component";
+import { HeaderComponent } from './planner/header/header.component';
 import { FormsModule } from '@angular/forms';
 import { SchedulerComponent } from './planner/scheduler/scheduler.component';
 import {
   MatCell,
   MatCellDef,
   MatColumnDef,
-  MatHeaderCell, MatHeaderCellDef,
-  MatHeaderRow, MatHeaderRowDef,
-  MatRow, MatRowDef,
+  MatHeaderCell,
+  MatHeaderCellDef,
+  MatHeaderRow,
+  MatHeaderRowDef,
+  MatRow,
+  MatRowDef,
   MatTable,
-} from "@angular/material/table";
-import {MatFormField, MatFormFieldModule, MatLabel} from "@angular/material/form-field";
+} from '@angular/material/table';
+import {
+  MatFormField,
+  MatFormFieldModule,
+  MatLabel,
+} from '@angular/material/form-field';
 import {
   MatDatepicker,
   MatDatepickerInput,
   MatDatepickerModule,
-  MatDatepickerToggle
-} from "@angular/material/datepicker";
-import {MatInput, MatInputModule} from "@angular/material/input";
-import {MatIcon, MatIconModule} from "@angular/material/icon";
-
+  MatDatepickerToggle,
+} from '@angular/material/datepicker';
+import { MatInput, MatInputModule } from '@angular/material/input';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { CdkDrag } from '@angular/cdk/drag-drop';
+import { MatFabButton } from '@angular/material/button';
 
 @NgModule({
-  declarations: [PlannerComponent, HeaderComponent,SchedulerComponent],
-  exports: [
-    PlannerComponent
-  ],
+  declarations: [PlannerComponent, HeaderComponent, SchedulerComponent],
+  exports: [PlannerComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -49,8 +55,12 @@ import {MatIcon, MatIconModule} from "@angular/material/icon";
     MatDatepickerInput,
     MatDatepickerToggle,
     MatIcon,
-    MatFormFieldModule, MatInputModule, MatDatepickerModule, MatIconModule
-
-  ]
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatIconModule,
+    CdkDrag,
+    MatFabButton,
+  ],
 })
-export class PlannerModule { }
+export class PlannerModule {}

@@ -15,13 +15,10 @@ export class HeaderComponent {
   today: Date = new Date(now());
   selectedDate = signal<Date | null>(this.today);
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
-    console.log('today:', this.today);
     if (event.value != null) {
       this.selectedDate.update((value) => event.value);
       this.plannerService.setSelectedDate(this.selectedDate());
     }
-
-    console.log(this.selectedDate());
   }
 
   constructor(private plannerService: PlannerService) {
