@@ -54,7 +54,7 @@ export class SchedulerComponent {
       this.hours.push(t);
       this.data.push({ time: t });
     }
-    console.log(this.data);
+   
 
     this.SelectedDate = this.plannerService.getSelectedDate().subscribe((x) => {
       console.log(x);
@@ -84,5 +84,9 @@ export class SchedulerComponent {
     console.log(this.week);
     console.log(this.weekCol);
     console.log(this.displayedColumns);
+  }
+
+  onCellClick(time: any, date: any, dataCell: number) {
+    console.log('Clicked cell:', time, date, dataCell);    
   }
 }
