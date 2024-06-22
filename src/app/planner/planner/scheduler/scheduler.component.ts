@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, Component, Input, ViewChild} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { formatDate, Time } from '@angular/common';
 import { MatDatepicker } from '@angular/material/datepicker';
@@ -18,6 +18,7 @@ export interface TaskModel {
   selector: 'app-scheduler',
   templateUrl: './scheduler.component.html',
   styleUrl: './scheduler.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SchedulerComponent {
 
@@ -57,14 +58,19 @@ export class SchedulerComponent {
 
     this.SelectedDate = this.plannerService.getSelectedDate().subscribe((x) => {
       console.log(x);
+
       this.currentDate = x;
       this.weekDaysCalculate(this.currentDate);
-      const nextDate = moment(this.currentDate).add(1, 'day').toDate();
-      console.log(nextDate);
+      // const nextDate = moment(this.currentDate).add(1, 'day').toDate();
+      // console.log(nextDate);
       });
   }
 
   weekDaysCalculate(currentDate: Date) {
+    this.week=[];
+    this.weekCol=[];
+    this.displayedColumns=[];
+
     for (let i = -3; i < 4; i++) {
       let day = moment(currentDate).add(i, 'days').toDate();
       this.week?.push(day);
