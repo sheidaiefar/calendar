@@ -1,7 +1,7 @@
 
-<mat-table [dataSource]="data" >
+  <mat-table [dataSource]="data" >
   <ng-container matColumnDef="time">
-    <th mat-header-cell *matHeaderCellDef> time </th>
+    <th mat-header-cell *matHeaderCellDef sticky> time </th>
     <td mat-cell *matCellDef="let data"> {{data.time }} : 00</td>
   </ng-container>
 
