@@ -1,6 +1,8 @@
-export interface TaskModel {
-  title: string;
-  date: string;
-  fromTime: string;
-  toTime: string;
+import moment, {now} from "moment";
+
+export class TaskModel {
+  title: string='task';
+  date: Date=new Date(now());
+  fromTime: number=0;
+  toTime: number=1;
 }

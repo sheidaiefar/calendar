@@ -38,7 +38,8 @@ export class HeaderComponent {
   openDialog() {
     this.dialog
       .open(TaskComponent, {
-        width: '400px',
+        width:' 40%',
+        height:' 40%',
         data: { message: 'This is the dialog content.' },
       })
       .afterClosed()
