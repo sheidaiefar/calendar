@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PlannerComponent } from './planner/planner.component';
-import { HeaderComponent } from './planner/header/header.component';
+import { HeaderComponent } from './planner/components/header/header.component';
 import { FormsModule } from '@angular/forms';
-import { SchedulerComponent } from './planner/scheduler/scheduler.component';
+import { SchedulerComponent } from './planner/components/scheduler/scheduler.component';
 import {
   MatCell,
   MatCellDef,
@@ -30,10 +30,17 @@ import {
 import { MatInput, MatInputModule } from '@angular/material/input';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { CdkDrag } from '@angular/cdk/drag-drop';
-import { MatFabButton } from '@angular/material/button';
+import { MatButtonModule, MatFabButton } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { TaskComponent } from './planner/components/task/task.component';
 
 @NgModule({
-  declarations: [PlannerComponent, HeaderComponent, SchedulerComponent],
+  declarations: [
+    PlannerComponent,
+    HeaderComponent,
+    SchedulerComponent,
+    TaskComponent,
+  ],
   exports: [PlannerComponent],
   imports: [
     CommonModule,
@@ -61,6 +68,8 @@ import { MatFabButton } from '@angular/material/button';
     MatIconModule,
     CdkDrag,
     MatFabButton,
+    MatDialogModule,
+    MatButtonModule,
   ],
 })
 export class PlannerModule {}

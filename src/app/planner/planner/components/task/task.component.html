@@ -1,0 +1,7 @@
+<p>task works!</p>
+<h2 mat-dialog-title>Dialog</h2>
+<div mat-dialog-content>{{ data.message }}</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button (click)="onConfirm()" cdkFocusInitial>Confirm</button>
+</div>
