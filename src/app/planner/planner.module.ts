@@ -29,7 +29,7 @@ import {
 } from '@angular/material/datepicker';
 import { MatInput, MatInputModule } from '@angular/material/input';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
-import { CdkDrag } from '@angular/cdk/drag-drop';
+import {CdkDrag, DragDropModule} from '@angular/cdk/drag-drop';
 import { MatButtonModule, MatFabButton } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TaskComponent } from './planner/components/task/task.component';
@@ -73,6 +73,7 @@ import {NoteComponent} from "./planner/components/note/note.component";
     MatDialogModule,
     MatButtonModule,
     ReactiveFormsModule,
+    DragDropModule,
   ],
 })
 export class PlannerModule {}

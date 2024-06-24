@@ -73,4 +73,8 @@ export class SchedulerComponent {
       console.log(this.taskList);
     });
   }
+
+  // drop(row:any , col:any){
+  //   debugger
+  // }
 }
