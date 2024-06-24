@@ -41,7 +41,7 @@ export class TaskComponent {
     if (this.taskForm.valid) {
       console.log(this.taskForm.value);
       this.taskService.addTask(this.task).subscribe(res=>{
-        debugger
+
       })
       // Perform any necessary actions with the form data
     }

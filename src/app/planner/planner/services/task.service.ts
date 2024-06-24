@@ -1,41 +1,39 @@
 import { Injectable } from '@angular/core';
 import { TaskModel } from '../models/planner.model';
 import { of } from 'rxjs';
+import {PlannerService} from "./planner.service";
 
 @Injectable({
   providedIn: 'root',
 })
 export class TaskService {
-  constructor() {}
-  getTaskList(): any {
+  constructor(private plannerService:PlannerService) {}
+
+  getTaskList() {
     //localStorage['tasks'].clear;
+    let tasks;
     const value = localStorage.getItem('tasks');
     if (value) {
-      var tasks = JSON.parse(value);
+      tasks = JSON.parse(value);
     }
-    return tasks ?? [];
+    return of(tasks) ?? of([]);
   }
 
   addTask(task: TaskModel) {
-    return this.addTaskIntoLocalStorage(task) ? of(true) : of(false);
-  }
-
-  addTaskIntoLocalStorage(task: TaskModel) {
     debugger
-    let taskList: any[] = this.getTaskList();
-    if (!taskList) {
-      taskList = [];
-    }
+    let taskList:any[]=[];
+    this.getTaskList().subscribe(x=>{
+      taskList =x;
+      if (!taskList.includes(task)) {
+        // this.ValidationChecks(taskList, task); todo
 
-    if (taskList.length != 0 && !taskList.includes(task)) {
-      // this.ValidationChecks(taskList, task); todo
+        taskList.push(task);
+        localStorage.setItem('tasks', JSON.stringify(taskList));
+        debugger
+        }
+    });
 
-      taskList.push(task);
-      localStorage.setItem('tasks', JSON.stringify(taskList));
-      debugger
-      return true;
-    } else {
-      return false;
-    }
+      this.plannerService.setTaskListSubject(taskList);
+    return of(taskList)
   }
 }

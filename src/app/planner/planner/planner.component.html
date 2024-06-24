@@ -9,7 +9,7 @@
     <div class="toolbar">
       <app-header>header</app-header>
       <div class="toolbar-content">
-        <app-scheduler [SelectedDate]="signal(Date)"></app-scheduler>
+        <app-scheduler [SelectedDate]="signal(Date)" [taskList]="getTaskList()"></app-scheduler>
       </div>
     </div>
   </div>

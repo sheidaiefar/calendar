@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { PlannerService } from '../../services/planner.service';
 import moment from 'moment';
+import { TaskService } from '../../services/task.service';
 
 @Component({
   selector: 'app-scheduler',
@@ -10,6 +11,8 @@ import moment from 'moment';
 })
 export class SchedulerComponent {
   @Input() SelectedDate: any;
+  @Input()  taskList?: any[];
+
   data: any[] = [];
   currentDate: any;
   week?: Date[] = [];
@@ -17,9 +20,12 @@ export class SchedulerComponent {
   displayedColumns: string[] = [];
   readonly hours: number[] = [];
 
-  taskList?: any[];
 
-  constructor(private plannerService: PlannerService) {
+
+  constructor(
+    private plannerService: PlannerService,
+    private taskService: TaskService
+  ) {
     for (let t = 0; t < 24; t++) {
       this.hours.push(t);
       this.data.push({ time: t });
@@ -56,5 +62,13 @@ export class SchedulerComponent {
 
   onCellClick(time: any, date: any, dataCell: any) {
     console.log('Clicked cell:', time, date, dataCell);
+  }
+
+  getTaskList() {
+    this.taskService.getTaskList().subscribe((res) => {
+      debugger
+      this.taskList = res;
+      console.log(this.taskList)
+    });
   }
 }
