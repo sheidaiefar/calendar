@@ -1,5 +1,3 @@
-import moment, {now} from "moment";
-
 export class TaskModel {
   title!: string;
   date!: Date;

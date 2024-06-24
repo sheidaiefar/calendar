@@ -1,9 +1,8 @@
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import { TaskModel } from '../../models/planner.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {TaskService} from "../../services/task.service";
+import { TaskService } from '../../services/task.service';
 
 @Component({
   selector: 'app-task',
@@ -14,9 +13,9 @@ import {TaskService} from "../../services/task.service";
 })
 export class TaskComponent {
   taskForm: FormGroup;
-  task: TaskModel = new TaskModel();
+  //task: TaskModel = new TaskModel();
   constructor(
-    private taskService:TaskService,
+    private taskService: TaskService,
     public dialogRef: MatDialogRef<TaskComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { message: string },
     private formBuilder: FormBuilder
@@ -27,23 +26,18 @@ export class TaskComponent {
       fromTime: ['', Validators.required],
       toTime: ['', Validators.required],
     });
+    //this.task=this.taskForm.value;
   }
 
   onCancel(): void {
-    this.dialogRef.close(false);
-  }
-
-  onConfirm(): void {
     this.dialogRef.close(true);
   }
 
   onSubmit() {
     if (this.taskForm.valid) {
-      console.log(this.taskForm.value);
-      this.taskService.addTask(this.task).subscribe(res=>{
-
-      })
-      // Perform any necessary actions with the form data
+      this.taskService.addTask(this.taskForm.value).subscribe((res) => {
+        this.dialogRef.close(true);
+      });
     }
   }
 }

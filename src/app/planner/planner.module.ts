@@ -1,8 +1,8 @@
-import { ChangeDetectionStrategy, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PlannerComponent } from './planner/planner.component';
 import { HeaderComponent } from './planner/components/header/header.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SchedulerComponent } from './planner/components/scheduler/scheduler.component';
 import {
   MatCell,

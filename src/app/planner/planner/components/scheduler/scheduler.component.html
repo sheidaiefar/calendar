@@ -16,8 +16,8 @@
       (click)="onCellClick(row.time, date, rowIndex[colIndex])"
     >
       <ng-container *ngFor="let task of taskList">
-        {{ date }}
-        {{ task | json }}
+        <!-- {{ date }}
+        {{ task | json }} -->
         <div *ngIf="task.date == date">
           {{ date }}
           {{ task | json }}

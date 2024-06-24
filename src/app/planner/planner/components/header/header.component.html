@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" style="margin-left: 1rem">
   <div class="col-md-2">
     <mat-form-field class="example-full-width">
       <mat-label>Choose a date</mat-label>
@@ -20,6 +20,13 @@
     <button mat-fab extended="" color="accent" (click)="openDialog()">
       <mat-icon>add</mat-icon>
       Add Task
+    </button>
+  </div>
+
+  <div class="col-md-8" style="display: flex; flex-direction: row-reverse">
+    <button mat-fab extended="" color="warn" (click)="deleteAll()">
+      <mat-icon>delete</mat-icon>
+      Clear All
     </button>
   </div>
 </div>

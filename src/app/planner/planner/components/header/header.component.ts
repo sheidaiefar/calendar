@@ -1,15 +1,11 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Inject,
-  signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { now } from 'moment';
 import { PlannerService } from '../../services/planner.service';
 import { MatDialog } from '@angular/material/dialog';
 import { TaskComponent } from '../task/task.component';
+import { TaskService } from '../../services/task.service';
 
 @Component({
   selector: 'app-header',
@@ -30,6 +26,7 @@ export class HeaderComponent {
 
   constructor(
     private plannerService: PlannerService,
+    private taskService: TaskService,
     private dialog: MatDialog
   ) {
     this.plannerService.setSelectedDate(this.today);
@@ -38,13 +35,19 @@ export class HeaderComponent {
   openDialog() {
     this.dialog
       .open(TaskComponent, {
-        width:' 40%',
-        height:' 40%',
+        width: ' 40%',
+        height: ' 40%',
         data: { message: 'This is the dialog content.' },
       })
       .afterClosed()
       .subscribe((result) => {
         console.log('Dialog was closed', result);
       });
+  }
+
+  deleteAll() {
+    this.taskService.deleteTasks();
+    // this.taskService.getTaskList();
+    // this.plannerService.getTaskListSubject();
   }
 }

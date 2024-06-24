@@ -11,7 +11,7 @@ import { TaskService } from '../../services/task.service';
 })
 export class SchedulerComponent {
   @Input() SelectedDate: any;
-  @Input()  taskList?: any[];
+  @Input() taskList?: any[];
 
   data: any[] = [];
   currentDate: any;
@@ -19,8 +19,6 @@ export class SchedulerComponent {
   weekCol: string[] = [];
   displayedColumns: string[] = [];
   readonly hours: number[] = [];
-
-
 
   constructor(
     private plannerService: PlannerService,
@@ -66,9 +64,9 @@ export class SchedulerComponent {
 
   getTaskList() {
     this.taskService.getTaskList().subscribe((res) => {
-      debugger
+      debugger;
       this.taskList = res;
-      console.log(this.taskList)
+      console.log(this.taskList);
     });
   }
 }

@@ -1,15 +1,12 @@
-<div class="row">
-  <!--  <div class="col-md-2">-->
-  <!--    <div class="toolbar">-->
-  <!--      <span class="title">Calendar</span>-->
-  <!--    </div>-->
-  <!--    <div class="toolbar-content"></div>-->
-  <!--  </div>-->
+<div class="row" style="margin-top: 1rem">
   <div class="col-md-11">
     <div class="toolbar">
       <app-header>header</app-header>
       <div class="toolbar-content">
-        <app-scheduler [SelectedDate]="signal(Date)" [taskList]="getTaskList()"></app-scheduler>
+        <app-scheduler
+          [SelectedDate]="signal(Date)"
+          [taskList]="getTaskList()"
+        ></app-scheduler>
       </div>
     </div>
   </div>
