@@ -26,7 +26,7 @@ export class PlannerService {
   }
   getTaskListSubject() {
     this.taskService.getTaskList().subscribe((res) => {
-      this.TaskListSubject.next(res);
+      this.setTaskListSubject(res);
     });
     return this.TaskListSubject.asObservable();
   }

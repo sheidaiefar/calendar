@@ -1,6 +1,6 @@
 export class TaskModel {
   title!: string;
-  date!: Date;
+  date!: string;
   fromTime!: number;
   toTime!: number;
 }
