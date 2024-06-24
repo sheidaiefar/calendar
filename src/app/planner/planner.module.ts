@@ -33,6 +33,7 @@ import { CdkDrag } from '@angular/cdk/drag-drop';
 import { MatButtonModule, MatFabButton } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TaskComponent } from './planner/components/task/task.component';
+import {NoteComponent} from "./planner/components/note/note.component";
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { TaskComponent } from './planner/components/task/task.component';
     HeaderComponent,
     SchedulerComponent,
     TaskComponent,
+    NoteComponent
   ],
   exports: [PlannerComponent],
   imports: [

@@ -54,6 +54,8 @@ export class SchedulerComponent {
     );
     this.weekCol.forEach((col) => this.displayedColumns.push(col));
 
+    // todo: full date (+year)
+
     // console.log(this.week);
     // console.log(this.weekCol);
     // console.log(this.displayedColumns);

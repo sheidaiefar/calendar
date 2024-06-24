@@ -46,6 +46,8 @@ export class HeaderComponent {
   }
 
   deleteAll() {
+    //todo : confirmation dialog
+
     this.taskService.deleteTasks();
     // this.taskService.getTaskList();
     // this.plannerService.getTaskListSubject();

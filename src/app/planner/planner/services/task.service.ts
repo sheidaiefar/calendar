@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { TaskModel } from '../models/planner.model';
 import { of } from 'rxjs';
 import { PlannerService } from './planner.service';
-import moment from "moment";
+import moment from 'moment';
 
 @Injectable({
   providedIn: 'root',
@@ -21,10 +21,9 @@ export class TaskService {
   }
 
   addTask(task: TaskModel) {
-    task.date=moment(task.date).format('ddd MM/DD').toString();
-
-    debugger;
+    task.date = moment(task.date).format('ddd MM/DD').toString();
     let taskList: TaskModel[] = [];
+    
     this.getTaskList().subscribe((x) => {
       x ? (taskList = x) : (taskList = []);
       if (!taskList.includes(task)) {
@@ -38,7 +37,8 @@ export class TaskService {
   }
 
   deleteTasks() {
-    localStorage['tasks'].clear();
+    localStorage.clear();
+    localStorage.setItem('tasks', JSON.stringify([]));
     //this.plannerService.setTaskListSubject([]);
   }
 }
